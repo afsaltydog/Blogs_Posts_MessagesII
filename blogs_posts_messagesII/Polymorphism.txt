@@ -1,0 +1,21 @@
+Comment.create(author: User.first.first_name, content: "This is a comment", commentable_type: "User", commentable_id: 1)
+
+Comment.create(author: User.first.first_name, content: "This is a comment", commentable_type: "Blog", commentable_id: 1)
+
+Comment.create(author: User.first.first_name, content: "This is a comment", commentable_type: "Post", commentable_id: 1)
+
+Comment.create(author: User.first.first_name, content: "This is a comment", commentable_type: "Message", commentable_id: 1)
+
+Comment.create(author: "Jane", content: "What?!", commentable_type: "User", commentable_id: 2)
+
+c = Comment.where(commentable_type: "User")
+c.update(content: "New comment")
+
+c = Comment.where(commentable_type: "Blog")
+c.update(content: "New comment")
+
+User.first.comments
+User.second.comments
+Blog.first.comments
+
+c = Comment.where(author: "Nobody").destroy_all
